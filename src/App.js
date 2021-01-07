@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Search from "./components/Search";
+import Button from "./components/Button";
+import List from "./components/List";
+import Item from "./components/Item";
+import "./reset.css";
+import "./styles.scss";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    //const tasks = [];
+
+    const [taskInput, setTaskInput] = useState("");
+    const [tasks, setTasks] = useState([]);
+
+    function handleWriteTask(inputValue) {
+        // console.log(`la tarea es ${taskInput}`);
+        setTaskInput(inputValue);
+    }
+
+    function handleAddTask() {
+        //console.log(`la tarea es ${taskInput}`);
+        setTasks([...tasks, taskInput]); //los tres puntos devuelven todos los elementos del array
+        console.log(tasks);
+    }
+
+    return (
+        <div className="App">
+            <h1 className="title">¿Qué debería hacer hoy?</h1>
+            <div className="inputContainer">
+                <Search handleCallback={handleWriteTask} />
+                <Button handleCallback={handleAddTask} />
+                <List tasks={tasks} />
+            </div>
+        </div>
+    );
 }
 
 export default App;
+
+//                                       * MATE NOISE *

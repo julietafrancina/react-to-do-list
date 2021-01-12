@@ -6,15 +6,20 @@ function Search(props) {
         props.handleCallback(value);
     }
 
+    function handleKeyDown(e) {
+        const { keyCode } = e;
+        props.handleCallback2(keyCode);
+    }
+
     return (
-        <div>
-            <input
-                className="inputText"
-                type="text"
-                placeholder="Escribí una tarea..."
-                onChange={handleChange}
-            />
-        </div>
+        <input
+            className="inputText"
+            type="text"
+            placeholder="Escribí una tarea..."
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            value={props.value} //3º para que se borre el input: le asigno ese valor
+        />
     );
 }
 

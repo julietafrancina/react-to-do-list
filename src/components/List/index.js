@@ -1,14 +1,24 @@
 import Item from "../Item";
+import "./styles.scss";
 
 function List(props) {
+    function handleDeleteTask(position) {
+        props.handleCallback(position);
+    }
+
     return (
-        <div>
-            <ul>
-                {props.tasks.map((task, key) => {
-                    return <Item key={key} task={task} />;
-                })}
-            </ul>
-        </div>
+        <ul className="pendingTasks">
+            {props.tasks.map((task, key) => {
+                return (
+                    <Item
+                        handleCallback={handleDeleteTask}
+                        key={key}
+                        task={task}
+                        position={key}
+                    />
+                );
+            })}
+        </ul>
     );
 }
 

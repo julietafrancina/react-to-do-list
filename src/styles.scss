@@ -17,15 +17,44 @@ body {
         rgba(91, 113, 191, 1) 0%,
         rgba(246, 107, 107, 1) 100%
     );
-
-    .title {
-        font-size: 4rem;
-        font-weight: 800;
-        margin-bottom: 1.2rem;
-        color: #fff;
-    }
-    .inputContainer {
+    .contentWrapper {
+        padding: 8rem 4rem;
+        margin: 0 auto;
+        max-width: 70rem;
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+        .tasksWrapper {
+            width: 100%;
+            padding: 0 100px;
+
+            .inputContainer {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+            }
+
+            .pendingTasksContainer {
+                border-radius: 1rem;
+                width: 100%;
+                padding: 1rem 1rem;
+                color: #fff;
+                background: rgba(#fff, 0.2);
+
+                .subtitle {
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
     }
 }
